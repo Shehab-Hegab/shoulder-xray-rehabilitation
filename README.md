@@ -43,12 +43,10 @@ Sample output visualization:
 - Training and Validation Loss curves.
 - Confusion Matrix for evaluation.
 
-## 🔧 Installation and Setup
 
-1. Clone the repository:
-```bash
-git clone https://github.com/Shehab-Hegab/shoulder-xray-rehabilitation.git
-cd shoulder-xray-rehabilitation
+
+
+
 
 
 
