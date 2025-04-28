@@ -1,3 +1,35 @@
+# 🩻 Shoulder X-ray Rehabilitation
+
+This project focuses on **analyzing and classifying shoulder X-ray images** to support rehabilitation processes. Using deep learning techniques, the model aims to assist healthcare professionals by providing initial assessments based on medical imaging.
+
+## 📋 Project Description
+
+Shoulder injuries and disorders are among the most common musculoskeletal problems. This project leverages **machine learning** and **deep learning** to automate the analysis of shoulder X-ray images, aiming to:
+- Classify shoulder X-rays into different injury types.
+- Support medical diagnosis and rehabilitation decision-making.
+- Reduce time and effort for healthcare providers.
+
+## 🚀 Features
+
+- Preprocessing and augmentation of X-ray datasets.
+- Model training and evaluation using deep learning architectures.
+- Performance metrics (accuracy, loss curves, etc.).
+- Easy to extend for other medical imaging tasks.
+
+## 🧠 Technologies Used
+
+- Python 3.x
+- TensorFlow / Keras
+- NumPy
+- OpenCV
+- Matplotlib
+- Scikit-learn
+
+## 📁 Project Structure
+
+
+
+
 ![image](https://github.com/user-attachments/assets/ca0d5e24-632c-4a6d-941f-2156110d56e7)
 
 ![image](https://github.com/user-attachments/assets/0e042dde-95d7-427a-9e36-e5388828ff58)
@@ -15,3 +47,5 @@
 
 
 ![WhatsApp Image 2025-04-15 at 02 20 42_befc2c0b](https://github.com/user-attachments/assets/01e2d764-a4ef-4717-a210-67fb0dd9aab9)
+
+
