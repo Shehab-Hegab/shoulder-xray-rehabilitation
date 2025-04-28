@@ -29,6 +29,29 @@ Shoulder injuries and disorders are among the most common musculoskeletal proble
 
 
 
+## 📊 Results
+
+| Metric    | Value      |
+|-----------|------------|
+| Accuracy  | X%         |
+| Loss      | Y          |
+| Precision | Z%         |
+
+> *(Replace X, Y, Z with your actual results once training is completed.)*
+
+Sample output visualization:
+- Training and Validation Loss curves.
+- Confusion Matrix for evaluation.
+
+## 🔧 Installation and Setup
+
+1. Clone the repository:
+```bash
+git clone https://github.com/Shehab-Hegab/shoulder-xray-rehabilitation.git
+cd shoulder-xray-rehabilitation
+
+
+
 
 ![image](https://github.com/user-attachments/assets/ca0d5e24-632c-4a6d-941f-2156110d56e7)
 
