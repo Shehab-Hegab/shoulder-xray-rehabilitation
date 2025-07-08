@@ -1,6 +1,7 @@
 # 🩻 Shoulder X-ray Rehabilitation
 
 This project focuses on **analyzing and classifying shoulder X-ray images** to support rehabilitation processes. Using deep learning techniques, the model aims to assist healthcare professionals by providing initial assessments based on medical imaging.
+https://www.kaggle.com/datasets/dryari5/shoulder-xray-classification/code
 
 ## 📋 Project Description
 
