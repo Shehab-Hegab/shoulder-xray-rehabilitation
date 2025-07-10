@@ -71,7 +71,7 @@ Sample output visualization:
 
 
 ![WhatsApp Image 2025-04-15 at 02 20 42_befc2c0b](https://github.com/user-attachments/assets/01e2d764-a4ef-4717-a210-67fb0dd9aab9)
-# after update 
+# After update 
 ![image](https://github.com/user-attachments/assets/a8e700b7-a653-47ff-bfc9-149b3675c5fe)
 
 
