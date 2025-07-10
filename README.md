@@ -62,6 +62,8 @@ Sample output visualization:
 
 
 ![image](https://github.com/user-attachments/assets/f4c302d1-b707-4959-8435-074500fe8fdd)
+
+
 ![WhatsApp Image 2025-04-15 at 02 20 40_a95ebcba](https://github.com/user-attachments/assets/bfbefbbf-bbe0-4b46-bded-4fe7547d7ef5)
 
 
@@ -69,5 +71,7 @@ Sample output visualization:
 
 
 ![WhatsApp Image 2025-04-15 at 02 20 42_befc2c0b](https://github.com/user-attachments/assets/01e2d764-a4ef-4717-a210-67fb0dd9aab9)
+# after update 
+![image](https://github.com/user-attachments/assets/a8e700b7-a653-47ff-bfc9-149b3675c5fe)
 
 
