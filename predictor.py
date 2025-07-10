@@ -1,8 +1,9 @@
-# predictor.py (Final Version - English Comments)
+# predictor.py (Enhanced Final Version)
 
 import numpy as np
 import tensorflow as tf
 from tensorflow.keras.preprocessing.image import load_img, img_to_array
+from datetime import datetime
 
 class XRayPredictor:
     """
@@ -16,7 +17,7 @@ class XRayPredictor:
         try:
             print("Loading model...")
             self.model = tf.keras.models.load_model(model_path)
-            self.img_size = (256, 256) # Must match the training image size
+            self.img_size = (256, 256)  # Must match the training image size
             print("Model loaded successfully.")
         except Exception as e:
             self.model = None
@@ -28,10 +29,26 @@ class XRayPredictor:
 
         # Define conditions and recommendations based on the classified Glenoid Type
         self.recommendations = {
-            'A1': {'condition': 'Normal or minimal wear', 'prosthetic': 'Anatomic total shoulder arthroplasty (TSA)'},
-            'C1': {'condition': 'Backward tilt (>25°)', 'prosthetic': 'Augmented implant or bone graft'},
-            'D1': {'condition': 'Posterior decentering', 'prosthetic': 'Reverse total shoulder arthroplasty (rTSA)'},
-            'Others': {'condition': 'Varies (e.g., B2, B3)', 'prosthetic': 'Consult detailed orthopedic analysis'}
+            'A1': {
+                'condition': 'Normal Glenoid or minimal wear. No significant deformity.', 
+                'prosthetic': 'Anatomic total shoulder arthroplasty (TSA) is typically recommended.',
+                'details': 'The glenoid shows minimal erosion with maintained version. The humeral head is centered.'
+            },
+            'C1': {
+                'condition': 'Dysplastic Glenoid with backward tilt (>25°).', 
+                'prosthetic': 'An augmented implant or bone graft may be necessary to correct the tilt.',
+                'details': 'Significant glenoid retroversion present. Consider preoperative CT for planning.'
+            },
+            'D1': {
+                'condition': 'Posterior decentering of the humeral head on the Glenoid.', 
+                'prosthetic': 'Reverse total shoulder arthroplasty (rTSA) is often the preferred solution.',
+                'details': 'Posterior subluxation of the humeral head with asymmetric glenoid wear.'
+            },
+            'Others': {
+                'condition': 'Complex cases (e.g., B2, B3) with bone loss or other factors.', 
+                'prosthetic': 'Requires detailed orthopedic analysis for a specific recommendation.',
+                'details': 'Complex pathology requiring individualized treatment planning.'
+            }
         }
 
     def preprocess_image(self, image_path):
@@ -40,10 +57,13 @@ class XRayPredictor:
         """
         # Load the image and resize it to the model's expected input size
         img = load_img(image_path, target_size=self.img_size, color_mode='rgb')
+        
         # Convert the image to a NumPy array
         img_array = img_to_array(img)
+        
         # Add a batch dimension (e.g., from (256, 256, 3) to (1, 256, 256, 3))
         img_array = np.expand_dims(img_array, axis=0)
+        
         # No rescaling is done, to match the original training notebook's logic
         return img_array
 
@@ -55,22 +75,22 @@ class XRayPredictor:
             return {'error': "Model not loaded"}
         
         try:
-            # 1. Preprocess the image
             processed_image = self.preprocess_image(image_path)
-            # 2. Get the model's prediction
             prediction = self.model.predict(processed_image)
             
-            # 3. Find the highest probability class and its confidence
             predicted_class_index = np.argmax(prediction, axis=1)[0]
             confidence = np.max(prediction) * 100
             
-            # 4. Map the results to human-readable information
             glenoid_type = self.class_names.get(predicted_class_index, "Unknown")
-            result_info = self.recommendations.get(glenoid_type, {'condition': 'Unknown', 'prosthetic': 'N/A'})
+            result_info = self.recommendations.get(glenoid_type, {
+                'condition': 'Unknown', 
+                'prosthetic': 'N/A',
+                'details': 'Unable to determine pathology'
+            })
             
-            # 5. Add confidence and type to the result dictionary
             result_info['confidence'] = f"{confidence:.2f}%"
             result_info['glenoid_type'] = glenoid_type
+            result_info['timestamp'] = datetime.now().isoformat()
             
             return result_info
         except Exception as e:
